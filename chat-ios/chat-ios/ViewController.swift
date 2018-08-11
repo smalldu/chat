@@ -18,14 +18,18 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    initToSocket()
   }
   
-  func initToSocket() {
-    
-    manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true), .compress])
+  
+  @IBAction func sendMsg(_ sender: Any) {
+    valueField.resignFirstResponder()
+    let value = valueField.text ?? ""
+    socketIOClient.emit("client_event",["data":value,"user":2])
+  }
+  
+  @IBAction func connectSocket(_ sender: Any) {
+    manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true)])
     socketIOClient = manager.defaultSocket
-    
     socketIOClient.on(clientEvent: .connect) {data, ack in
       print(data)
       print("已连接")
@@ -46,16 +50,10 @@ class ViewController: UIViewController {
       print("重新连接")
     }
     
+    socketIOClient.on("client_event") { (data, eck) in
+      print("收到服务器端回的信息\(data)")
+    }
     
-  }
-  
-  @IBAction func sendMsg(_ sender: Any) {
-    valueField.resignFirstResponder()
-    let value = valueField.text ?? ""
-    socketIOClient.emit("client_event",["data":value])
-  }
-  
-  @IBAction func connectSocket(_ sender: Any) {
     socketIOClient.connect()
   }
   
