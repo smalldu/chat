@@ -11,55 +11,71 @@ import SocketIO
 
 class ViewController: UIViewController {
   
-  @IBOutlet weak var valueField: UITextField!
+  @IBOutlet weak var tableView: UITableView!
   
-  var manager: SocketManager!
-  var socketIOClient: SocketIOClient!
-  
+  var items = ["456"]
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "聊天列表"
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.rowHeight = 50
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
   }
   
   
-  @IBAction func sendMsg(_ sender: Any) {
-    valueField.resignFirstResponder()
-    let value = valueField.text ?? ""
-    socketIOClient.emit("client_event",["data":value,"user":2])
-  }
-  
-  @IBAction func connectSocket(_ sender: Any) {
-    manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true)])
-    socketIOClient = manager.defaultSocket
-    socketIOClient.on(clientEvent: .connect) {data, ack in
-      print(data)
-      print("已连接")
-    }
-    
-    socketIOClient.on(clientEvent: .error) { (data, eck) in
-      print(data)
-      print("发生错误")
-    }
-    
-    socketIOClient.on(clientEvent: .disconnect) { (data, eck) in
-      print(data)
-      print("已断开")
-    }
-    
-    socketIOClient.on(clientEvent: .reconnect) { (data, eck) in
-      print(data)
-      print("重新连接")
-    }
-    
-    socketIOClient.on("client_event") { (data, eck) in
-      print("收到服务器端回的信息\(data)")
-    }
-    
-    socketIOClient.connect()
+  @IBAction func connect(_ sender: Any) {
+    DScoket.shared.connect()
   }
   
   @IBAction func dissconnect(_ sender: Any) {
-    socketIOClient.disconnect()
+    DScoket.shared.disconnect()
   }
 }
+
+extension ViewController: UITableViewDataSource,UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    cell.textLabel?.text = items[indexPath.row]
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return items.count
+  }
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    
+    let chatUid = items[indexPath.row]
+    let chatController = ChatViewController(chatUid: chatUid)
+    self.navigationController?.pushViewController(chatController, animated: true)
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -14,6 +14,11 @@
 		267A8396211DDBD20073EAFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267A8394211DDBD20073EAFC /* LaunchScreen.storyboard */; };
 		267A83A1211DDBD20073EAFC /* chat_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A83A0211DDBD20073EAFC /* chat_iosTests.swift */; };
 		267A83AC211DDBD20073EAFC /* chat_iosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A83AB211DDBD20073EAFC /* chat_iosUITests.swift */; };
+		81A872752121723800B46698 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A872732121723800B46698 /* ChatViewController.swift */; };
+		81A872762121723800B46698 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A872742121723800B46698 /* ChatViewController.xib */; };
+		81A87279212174F400B46698 /* DSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87278212174F400B46698 /* DSocket.swift */; };
+		81A8727C21217B7300B46698 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8727A21217B7300B46698 /* ChatCell.swift */; };
+		81A8727D21217B7300B46698 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A8727B21217B7300B46698 /* ChatCell.xib */; };
 		DE9243F1308AD33348A5D9E5 /* Pods_chat_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BF09D5CB4873465624C25E /* Pods_chat_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +55,11 @@
 		267A83AB211DDBD20073EAFC /* chat_iosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat_iosUITests.swift; sourceTree = "<group>"; };
 		267A83AD211DDBD20073EAFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F79ED31CC9964CCD870095E /* Pods-chat-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chat-ios/Pods-chat-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		81A872732121723800B46698 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		81A872742121723800B46698 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		81A87278212174F400B46698 /* DSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSocket.swift; sourceTree = "<group>"; };
+		81A8727A21217B7300B46698 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		81A8727B21217B7300B46698 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		ABD4AA316165D8D13814160F /* Pods-chat-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-chat-ios/Pods-chat-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,12 +123,17 @@
 		267A838A211DDBD20073EAFC /* chat-ios */ = {
 			isa = PBXGroup;
 			children = (
+				81A87277212173C600B46698 /* Manager */,
 				267A838B211DDBD20073EAFC /* AppDelegate.swift */,
 				267A838D211DDBD20073EAFC /* ViewController.swift */,
 				267A838F211DDBD20073EAFC /* Main.storyboard */,
 				267A8392211DDBD20073EAFC /* Assets.xcassets */,
 				267A8394211DDBD20073EAFC /* LaunchScreen.storyboard */,
 				267A8397211DDBD20073EAFC /* Info.plist */,
+				81A872732121723800B46698 /* ChatViewController.swift */,
+				81A872742121723800B46698 /* ChatViewController.xib */,
+				81A8727A21217B7300B46698 /* ChatCell.swift */,
+				81A8727B21217B7300B46698 /* ChatCell.xib */,
 			);
 			path = "chat-ios";
 			sourceTree = "<group>";
@@ -139,6 +154,14 @@
 				267A83AD211DDBD20073EAFC /* Info.plist */,
 			);
 			path = "chat-iosUITests";
+			sourceTree = "<group>";
+		};
+		81A87277212173C600B46698 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				81A87278212174F400B46698 /* DSocket.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		95A4267D55F7A6D543295BA0 /* Frameworks */ = {
@@ -260,6 +283,8 @@
 			files = (
 				267A8396211DDBD20073EAFC /* LaunchScreen.storyboard in Resources */,
 				267A8393211DDBD20073EAFC /* Assets.xcassets in Resources */,
+				81A8727D21217B7300B46698 /* ChatCell.xib in Resources */,
+				81A872762121723800B46698 /* ChatViewController.xib in Resources */,
 				267A8391211DDBD20073EAFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				267A838E211DDBD20073EAFC /* ViewController.swift in Sources */,
+				81A87279212174F400B46698 /* DSocket.swift in Sources */,
+				81A872752121723800B46698 /* ChatViewController.swift in Sources */,
+				81A8727C21217B7300B46698 /* ChatCell.swift in Sources */,
 				267A838C211DDBD20073EAFC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
