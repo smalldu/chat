@@ -17,7 +17,7 @@ extension Notification.Name {
 class DScoket {
   
   static let shared = DScoket()
-  var manager = SocketManager(socketURL: URL(string: "http://localhost:5000")!, config: [.log(true)])
+  var manager = SocketManager(socketURL: URL(string: "http://chat.smalldu.top/")!, config: [.log(true)])
   var client: SocketIOClient
   
   
@@ -79,7 +79,6 @@ class DScoket {
   func disconnect(){
     self.client.disconnect()
   }
-  
 }
 
 

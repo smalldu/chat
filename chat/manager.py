@@ -1,43 +1,25 @@
-from flask import Flask,render_template
-from flask_socketio import SocketIO
+import os
 
+from app import create_app, db, socketio
 from server.chat import Chat
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-
-socketio = SocketIO(app, async_mode='eventlet')
-online_list = {}
-
-@app.route('/')
-def index():
-    print(online_list)
-    return render_template('index.html',lst = online_list)
+from flask_script import Manager, Shell
+from flask_migrate import Migrate, MigrateCommand
 
 
-@socketio.on_error('/chat')
-def error_handler_chat(e):
-    print('发生错误{}'.format(e))
-
+app = create_app('development')
+manager = Manager(app=app)
 socketio.on_namespace(Chat('/chat'))
 
+
+def make_shell_context():
+    return dict(app=app, db=db)
+
+
+manager.add_command("shell", Shell(make_context=make_shell_context))
+manager.add_command('run', socketio.run(app=app, host='127.0.0.1', port=8000,debug=True))
+
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    manager.run()
 
 
 
