@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SocketIO
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-      
+      DScoket.shared.disconnect()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -32,11 +33,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
+      DScoket.shared.connect()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+      
     }
-
 
 }
 

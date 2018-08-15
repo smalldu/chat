@@ -24,7 +24,7 @@ extension Date{
     let str = dateFormatter.string(from: self)
     return str
   }
-  
+ 
 }
 
 var messages: [Message] = []
@@ -94,6 +94,5 @@ extension ChatViewController: UITableViewDataSource,UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return items.count
   }
-  
 }
 

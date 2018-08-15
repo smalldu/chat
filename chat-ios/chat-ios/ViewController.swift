@@ -13,7 +13,7 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var items = ["456"]
+  var items = ["456","realm-demo"]
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "聊天列表"
@@ -47,10 +47,14 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    
-    let chatUid = items[indexPath.row]
-    let chatController = ChatViewController(chatUid: chatUid)
-    self.navigationController?.pushViewController(chatController, animated: true)
+    if indexPath.row == 1{
+      let realmController = RealmDemoController()
+      self.navigationController?.pushViewController(realmController, animated: true)
+    }else{
+      let chatUid = items[indexPath.row]
+      let chatController = ChatViewController(chatUid: chatUid)
+      self.navigationController?.pushViewController(chatController, animated: true)
+    }
   }
   
 }
