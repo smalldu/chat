@@ -11,6 +11,7 @@ class Config:
     MAIL_PASSWORD = 'smalldu223'  # os.environ.get('MAIL_PASSWORD')
     SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:smalldu@39.106.15.69/test'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
     @staticmethod
     def init_app(app):
