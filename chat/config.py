@@ -9,7 +9,7 @@ class Config:
     MAIL_USE_SSL = True
     MAIL_USERNAME = 'stonedu04@163.com'  # os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = 'smalldu223'  # os.environ.get('MAIL_PASSWORD')
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:smalldu@39.106.15.69/test'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root123@39.106.15.69/chat'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 

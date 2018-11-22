@@ -28,7 +28,6 @@ extension Date{
 }
 
 var messages: [Message] = []
-let uid = "123"
 
 
 class ChatViewController: UIViewController {
@@ -39,7 +38,7 @@ class ChatViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var items: [Message] {
-    return messages.filter({ ($0.uid == chatUid && $0.toUid == uid) || ($0.uid == uid && $0.toUid == chatUid) })
+    return messages.filter({ ($0.uid == chatUid && $0.toUid == currentUID) || ($0.uid == currentUID && $0.toUid == chatUid) })
   }
   
   let chatUid: String
@@ -72,7 +71,7 @@ class ChatViewController: UIViewController {
       return
     }
     DScoket.shared.send(value: value, to: chatUid)
-    let message = Message(time: Date().toString() , uid: uid, toUid: chatUid, content: value)
+    let message = Message(time: Date().toString() , uid: currentUID, toUid: chatUid, content: value)
     messages.append(message)
     self.tableView.reloadData()
   }

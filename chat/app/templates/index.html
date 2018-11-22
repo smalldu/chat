@@ -4,24 +4,21 @@
     <title>Flask-SocketIO Test</title>
     <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
-    <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-        var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port+'/chat');
-
-        socket.on('connect', function() {
-            socket.emit('bind', {uid: '456'});
-        })
-
-        socket.on('private_message', function(msg) {
-            $('#log').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.content).html());
-        });
-
-        $('form#emit').submit(function(event) {
-                socket.emit('private_message', {content: $('#emit_data').val(),to:$('#send_to').val(),uid:'456' });
-                return false;
-            });
-    });
-    </script>
+    <!--<script type="text/javascript" charset="utf-8">-->
+    <!--$(document).ready(function() {-->
+        <!--var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port+'/chat');-->
+        <!--socket.on('connect', function() {-->
+          <!--socket.emit('bind', {uid: '456'});-->
+        <!--})-->
+        <!--socket.on('private_message', function(msg) {-->
+           <!--$('#log').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.content).html());-->
+        <!--});-->
+        <!--$('form#emit').submit(function(event) {-->
+                <!--socket.emit('private_message', {content: $('#emit_data').val(),to:$('#send_to').val(),uid:'456' });-->
+                <!--return false;-->
+        <!--});-->
+    <!--});-->
+    <!--</script>-->
 </head>
 <body>
     <h2>WebSockect</h2>
@@ -33,11 +30,11 @@
         {% endfor %}
     </ul>
 
-    <form id="emit" method="POST" action='#'>
-        发送给: <input type="text" id="send_to" placeholder="reciver">
-        <input type="text" name="emit_data" id="emit_data" placeholder="Message">
-        <input type="submit" value="Echo">
-    </form>
-    <div id='log'></div>
+    <!--<form id="emit" method="POST" action='#'>-->
+        <!--发送给: <input type="text" id="send_to" placeholder="reciver">-->
+        <!--<input type="text" name="emit_data" id="emit_data" placeholder="Message">-->
+        <!--<input type="submit" value="Echo">-->
+    <!--</form>-->
+    <!--<div id='log'></div>-->
 </body>
 </html>

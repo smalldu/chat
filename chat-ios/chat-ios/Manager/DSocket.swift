@@ -11,15 +11,16 @@ import SocketIO
 
 extension Notification.Name {
   static let kMessageRecieved = Notification.Name("message.recieved") // 收到消息
-    
+  static let kMessageListChanged = Notification.Name("message.listChanged") // 聊天人数改变
 }
 
+var currentUID = "123"
+var list: [String: String] = [:]
 class DScoket {
   
   static let shared = DScoket()
-  var manager = SocketManager(socketURL: URL(string: "http://chat.smalldu.top/")!, config: [.log(true)])
+  var manager = SocketManager(socketURL: URL(string: "http://127.0.0.1:8000")!, config: [.log(true)])
   var client: SocketIOClient
-  
   
   // socket 进行初始化
   init(){
@@ -30,7 +31,7 @@ class DScoket {
       print(data)
       print("已连接")
       // 绑定用户
-      self.client.emit("bind",["uid":self.uid])
+      self.client.emit("bind",["uid": currentUID])
     }
     
     client.on(clientEvent: .error) { (data, eck) in
@@ -63,13 +64,25 @@ class DScoket {
         }
       }
     }
+    
+    
+    client.on("broad") { (data, eck) in
+      print("收到服务器广播 \(data) , \(eck)")
+      list.removeAll()
+      for item in data {
+        if let item = item as? [String: String] {
+          list = item
+        }
+      }
+      NotificationCenter.default.post(name: NSNotification.Name.kMessageListChanged , object: nil)
+    }
+    
+    
   }
-  
-  var uid: String = "123"
   
   // 发送消息
   func send(value: String , to: String ){
-    self.client.emit("private_message",["content":value ,"uid": uid ,"to": to ])
+    self.client.emit("private_message",["content":value ,"uid": currentUID ,"to": to ])
   }
   
   func connect(){

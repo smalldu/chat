@@ -14,7 +14,7 @@ class Chat(Namespace):
         new_dict = {v: k for k, v in online_list.items()}
         keys = new_dict[request.sid]
         del online_list[keys]
-        print(online_list)
+        emit('broad', online_list, namespace='/chat', broadcast=True)
         print("有个小子{}断开了连接".format(request.sid))
 
     def on_private_message(self,data):
@@ -28,5 +28,5 @@ class Chat(Namespace):
         print('sid is {}'.format(request.sid))
         uid = data['uid']
         online_list[uid] = request.sid
+        emit('broad', online_list , namespace='/chat' , broadcast=True) # 给所有用户
         print("在线用户 {}".format(online_list))
-

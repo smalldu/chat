@@ -13,7 +13,17 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var items = ["456","realm-demo"]
+  var items: [String] {
+    var temp: [String] = []
+    for (k,_) in list {
+      if k != currentUID {
+        // 去掉自己
+        temp.append(k)
+      }
+    }
+    return temp
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "聊天列表"
@@ -21,8 +31,13 @@ class ViewController: UIViewController {
     tableView.dataSource = self
     tableView.rowHeight = 50
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    NotificationCenter.default.addObserver(self, selector: #selector(listChanged), name: NSNotification.Name.kMessageListChanged, object: nil)
   }
   
+  @objc
+  func listChanged(){
+    self.tableView.reloadData()
+  }
   
   @IBAction func connect(_ sender: Any) {
     DScoket.shared.connect()
@@ -47,14 +62,9 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    if indexPath.row == 1{
-      let realmController = RealmDemoController()
-      self.navigationController?.pushViewController(realmController, animated: true)
-    }else{
-      let chatUid = items[indexPath.row]
-      let chatController = ChatViewController(chatUid: chatUid)
-      self.navigationController?.pushViewController(chatController, animated: true)
-    }
+    let chatUid = items[indexPath.row]
+    let chatController = ChatViewController(chatUid: chatUid)
+    self.navigationController?.pushViewController(chatController, animated: true)
   }
   
 }

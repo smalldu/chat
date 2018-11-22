@@ -16,12 +16,10 @@ class ChatCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    
   }
   
-  
   func config(message: Message){
-    if message.uid == uid {
+    if message.uid == currentUID {
 //      自己
       uidLabel.textAlignment = .right
       timeLabel.textAlignment = .right
