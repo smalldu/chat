@@ -21,7 +21,7 @@ class LoginViewController: UIViewController {
   @objc
   func login(){
     guard let uid = userNameField.text else { return }
-    currentUID = uid
+    Global.loginUser = uid
     DScoket.shared.connect()
     if let navController = self.storyboard?.instantiateViewController(withIdentifier: "chatListNav") as? UINavigationController {
       self.present(navController, animated: true, completion: nil)

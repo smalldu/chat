@@ -15,8 +15,8 @@ class ViewController: UIViewController {
   
   var items: [String] {
     var temp: [String] = []
-    for (k,_) in list {
-      if k != currentUID {
+    for (k,_) in Global.onlineList {
+      if k != Global.loginUser {
         // 去掉自己
         temp.append(k)
       }
@@ -63,7 +63,7 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     let chatUid = items[indexPath.row]
-    let chatController = ChatViewController(chatUid: chatUid)
+    let chatController = ChatViewController()
     self.navigationController?.pushViewController(chatController, animated: true)
   }
   

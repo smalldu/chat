@@ -37,9 +37,10 @@
 		814BAA6E21A6AD4B003AD86C /* KeyboardTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BAA6821A6AD4B003AD86C /* KeyboardTracker.swift */; };
 		814BAA6F21A6AD4B003AD86C /* UICollectionView+Fix.m in Sources */ = {isa = PBXBuildFile; fileRef = 814BAA6921A6AD4B003AD86C /* UICollectionView+Fix.m */; };
 		814BAA7121A6B120003AD86C /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BAA7021A6B120003AD86C /* ChatViewController.swift */; };
+		814BAA7421A6B329003AD86C /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BAA7321A6B329003AD86C /* ChatMessage.swift */; };
+		814BAA7721A6B458003AD86C /* ChatLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BAA7621A6B458003AD86C /* ChatLayout.swift */; };
+		814BAA7A21A6B542003AD86C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814BAA7921A6B542003AD86C /* Global.swift */; };
 		81A87279212174F400B46698 /* DSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A87278212174F400B46698 /* DSocket.swift */; };
-		81A8727C21217B7300B46698 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A8727A21217B7300B46698 /* ChatCell.swift */; };
-		81A8727D21217B7300B46698 /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A8727B21217B7300B46698 /* ChatCell.xib */; };
 		DE9243F1308AD33348A5D9E5 /* Pods_chat_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19BF09D5CB4873465624C25E /* Pods_chat_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,9 +107,10 @@
 		814BAA6821A6AD4B003AD86C /* KeyboardTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardTracker.swift; sourceTree = "<group>"; };
 		814BAA6921A6AD4B003AD86C /* UICollectionView+Fix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Fix.m"; sourceTree = "<group>"; };
 		814BAA7021A6B120003AD86C /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		814BAA7321A6B329003AD86C /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
+		814BAA7621A6B458003AD86C /* ChatLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLayout.swift; sourceTree = "<group>"; };
+		814BAA7921A6B542003AD86C /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		81A87278212174F400B46698 /* DSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSocket.swift; sourceTree = "<group>"; };
-		81A8727A21217B7300B46698 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		81A8727B21217B7300B46698 /* ChatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		ABD4AA316165D8D13814160F /* Pods-chat-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chat-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-chat-ios/Pods-chat-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,8 +182,6 @@
 				267A8392211DDBD20073EAFC /* Assets.xcassets */,
 				267A8394211DDBD20073EAFC /* LaunchScreen.storyboard */,
 				267A8397211DDBD20073EAFC /* Info.plist */,
-				81A8727A21217B7300B46698 /* ChatCell.swift */,
-				81A8727B21217B7300B46698 /* ChatCell.xib */,
 				814BAA4A21A6A1F8003AD86C /* bridage.h */,
 			);
 			path = "chat-ios";
@@ -217,6 +217,7 @@
 		814BAA2321A6A09A003AD86C /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				814BAA7221A6B306003AD86C /* Entities */,
 				814BAA6221A6AD4B003AD86C /* Utils */,
 				814BAA5321A6AD01003AD86C /* Controllers */,
 				814BAA4E21A6A322003AD86C /* ViewModels */,
@@ -271,6 +272,7 @@
 		814BAA5321A6AD01003AD86C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				814BAA7521A6B449003AD86C /* Layout */,
 				814BAA7021A6B120003AD86C /* ChatViewController.swift */,
 			);
 			path = Controllers;
@@ -289,10 +291,27 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		814BAA7221A6B306003AD86C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				814BAA7321A6B329003AD86C /* ChatMessage.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		814BAA7521A6B449003AD86C /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				814BAA7621A6B458003AD86C /* ChatLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		81A87277212173C600B46698 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				81A87278212174F400B46698 /* DSocket.swift */,
+				814BAA7921A6B542003AD86C /* Global.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -416,7 +435,6 @@
 			files = (
 				267A8396211DDBD20073EAFC /* LaunchScreen.storyboard in Resources */,
 				267A8393211DDBD20073EAFC /* Assets.xcassets in Resources */,
-				81A8727D21217B7300B46698 /* ChatCell.xib in Resources */,
 				814BAA3721A6A13E003AD86C /* ChatInputView.xib in Resources */,
 				267A8391211DDBD20073EAFC /* Main.storyboard in Resources */,
 			);
@@ -503,17 +521,19 @@
 				814BAA6B21A6AD4B003AD86C /* SerialTaskQueue.swift in Sources */,
 				814BAA3A21A6A13E003AD86C /* EmojiMapSymbols.m in Sources */,
 				814BAA6A21A6AD4B003AD86C /* ChatLayoutConfiguration.swift in Sources */,
+				814BAA7721A6B458003AD86C /* ChatLayout.swift in Sources */,
 				814BAA6D21A6AD4B003AD86C /* AccessoryViewRevealer.swift in Sources */,
+				814BAA7A21A6B542003AD86C /* Global.swift in Sources */,
 				814BAA6F21A6AD4B003AD86C /* UICollectionView+Fix.m in Sources */,
 				814BAA4D21A6A300003AD86C /* ChatRecordButton.swift in Sources */,
 				814BAA3B21A6A13E003AD86C /* EmojiEmoticons.m in Sources */,
 				814BAA4421A6A175003AD86C /* ChatMoreView.swift in Sources */,
+				814BAA7421A6B329003AD86C /* ChatMessage.swift in Sources */,
 				81A87279212174F400B46698 /* DSocket.swift in Sources */,
 				814BAA3821A6A13E003AD86C /* ChatInputView+chatMoreDataSource.swift in Sources */,
 				814BAA3F21A6A13E003AD86C /* ChatEmojiView.swift in Sources */,
 				814BAA6E21A6AD4B003AD86C /* KeyboardTracker.swift in Sources */,
 				814BAA7121A6B120003AD86C /* ChatViewController.swift in Sources */,
-				81A8727C21217B7300B46698 /* ChatCell.swift in Sources */,
 				267A838C211DDBD20073EAFC /* AppDelegate.swift in Sources */,
 				814BAA4621A6A1C1003AD86C /* ChatMoreDataSource.swift in Sources */,
 			);

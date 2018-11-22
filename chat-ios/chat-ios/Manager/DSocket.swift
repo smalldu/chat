@@ -14,8 +14,6 @@ extension Notification.Name {
   static let kMessageListChanged = Notification.Name("message.listChanged") // 聊天人数改变
 }
 
-var currentUID = "123"
-var list: [String: String] = [:]
 class DScoket {
   
   static let shared = DScoket()
@@ -31,7 +29,8 @@ class DScoket {
       print(data)
       print("已连接")
       // 绑定用户
-      self.client.emit("bind",["uid": currentUID])
+      
+      self.client.emit("bind",["uid": Global.loginUser])
     }
     
     client.on(clientEvent: .error) { (data, eck) in
@@ -56,9 +55,7 @@ class DScoket {
         print(item)
         if let item = item as? [String: Any] {
           if let uid = item["uid"] as? String,let toUid = item["to"] as? String, let content = item["content"] as? String,
-            let time = item["time"] as? String{
-            let message = Message(time: time, uid: uid, toUid: toUid, content: content)
-            messages.append(message)
+            let time = item["time"] as? String {
             NotificationCenter.default.post(name: NSNotification.Name.kMessageRecieved , object: nil)
           }
         }
@@ -68,10 +65,9 @@ class DScoket {
     
     client.on("broad") { (data, eck) in
       print("收到服务器广播 \(data) , \(eck)")
-      list.removeAll()
       for item in data {
         if let item = item as? [String: String] {
-          list = item
+          Global.onlineList = item
         }
       }
       NotificationCenter.default.post(name: NSNotification.Name.kMessageListChanged , object: nil)
@@ -82,7 +78,7 @@ class DScoket {
   
   // 发送消息
   func send(value: String , to: String ){
-    self.client.emit("private_message",["content":value ,"uid": currentUID ,"to": to ])
+    self.client.emit("private_message",["content":value ,"uid": Global.loginUser ,"to": to ])
   }
   
   func connect(){
