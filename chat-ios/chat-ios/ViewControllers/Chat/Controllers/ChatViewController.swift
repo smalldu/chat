@@ -134,6 +134,7 @@ extension ChatViewController: UIGestureRecognizerDelegate {
   
   func createChatInputView() -> ChatInputView {
     let chatInputView = ChatInputView.loadNib()
+    chatInputView.delegate = self
     return chatInputView
   }
   
