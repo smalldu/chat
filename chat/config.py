@@ -17,7 +17,6 @@ class Config:
     def init_app(app):
         pass
 
-
 config = {
     'development': Config,
     'default': Config
