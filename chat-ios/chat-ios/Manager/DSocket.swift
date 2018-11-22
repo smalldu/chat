@@ -19,7 +19,7 @@ var list: [String: String] = [:]
 class DScoket {
   
   static let shared = DScoket()
-  var manager = SocketManager(socketURL: URL(string: "http://127.0.0.1:8000")!, config: [.log(true)])
+  var manager = SocketManager(socketURL: URL(string: "http://chat.smalldu.top")!, config: [.log(true)])
   var client: SocketIOClient
   
   // socket 进行初始化

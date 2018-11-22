@@ -2,5 +2,6 @@ use_frameworks!
 
 target 'chat-ios' do
     pod 'Socket.IO-Client-Swift', '~> 13.3.0'
+    pod 'SnapKit'
     pod 'RealmSwift'
 end
