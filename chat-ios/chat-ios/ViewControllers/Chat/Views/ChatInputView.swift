@@ -8,8 +8,7 @@
 
 import UIKit
 
-protocol ChatInputViewDelegate: class {
-  
+protocol ChatInputViewDelegate: class{
   func chatInputView(_ view: ChatInputView , didSend text: String)
 }
 
@@ -39,8 +38,9 @@ class ChatInputView: ReusableXibView {
   }
   
   
-  private func setup(){
+  private func setup() {
     backgroundColor = .white
+    topView.backgroundColor = .white
     layer.borderColor = UIColor.lightBorder.cgColor
     layer.borderWidth = 0.5
     setupTextView()

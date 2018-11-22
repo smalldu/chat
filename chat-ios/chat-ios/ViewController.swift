@@ -52,17 +52,17 @@ extension ViewController: UITableViewDataSource,UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.textLabel?.text = items[indexPath.row]
+    cell.textLabel?.text = "demo" // items[indexPath.row]
     return cell
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return items.count
+    return items.count + 1
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
-    let chatUid = items[indexPath.row]
+//    let chatUid = items[indexPath.row]
     let chatController = ChatViewController()
     self.navigationController?.pushViewController(chatController, animated: true)
   }

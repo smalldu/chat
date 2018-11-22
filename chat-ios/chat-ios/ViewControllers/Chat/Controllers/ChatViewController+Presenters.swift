@@ -14,11 +14,12 @@ import UIKit
 extension ChatViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 1
+    return 10
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    return UICollectionViewCell()
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TextMessageCell.reuseID , for: indexPath) as! TextMessageCell
+    return cell
   }
   
 }
@@ -29,6 +30,14 @@ extension ChatViewController: UICollectionViewDataSource {
 
 extension ChatViewController: UICollectionViewDelegateFlowLayout {
   
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    var height: CGFloat = 100
+    return CGSize(width: collectionView.bounds.width , height: height)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 15
+  }
   
 }
 

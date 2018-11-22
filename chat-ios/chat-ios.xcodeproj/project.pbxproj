@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2623335121A6F9230009FD0A /* TextMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623335021A6F9230009FD0A /* TextMessageCell.swift */; };
+		2623335321A6FBE00009FD0A /* BaseChatViewControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623335221A6FBE00009FD0A /* BaseChatViewControllerView.swift */; };
+		2623335521A6FF230009FD0A /* ChatViewController+Scrolling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2623335421A6FF230009FD0A /* ChatViewController+Scrolling.swift */; };
 		267A838C211DDBD20073EAFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A838B211DDBD20073EAFC /* AppDelegate.swift */; };
 		267A838E211DDBD20073EAFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267A838D211DDBD20073EAFC /* ViewController.swift */; };
 		267A8391211DDBD20073EAFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 267A838F211DDBD20073EAFC /* Main.storyboard */; };
@@ -56,6 +59,9 @@
 
 /* Begin PBXFileReference section */
 		19BF09D5CB4873465624C25E /* Pods_chat_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chat_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2623335021A6F9230009FD0A /* TextMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMessageCell.swift; sourceTree = "<group>"; };
+		2623335221A6FBE00009FD0A /* BaseChatViewControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseChatViewControllerView.swift; sourceTree = "<group>"; };
+		2623335421A6FF230009FD0A /* ChatViewController+Scrolling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Scrolling.swift"; sourceTree = "<group>"; };
 		267A8388211DDBD20073EAFC /* chat-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "chat-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		267A838B211DDBD20073EAFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		267A838D211DDBD20073EAFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +81,6 @@
 		814BAA3421A6A13E003AD86C /* ChatInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		814BAA3521A6A13E003AD86C /* ExpandableTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTextView.swift; sourceTree = "<group>"; };
 		814BAA3621A6A13E003AD86C /* ReusableXibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableXibView.swift; sourceTree = "<group>"; };
-		814BAA4A21A6A1F8003AD86C /* bridage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridage.h; sourceTree = "<group>"; };
 		814BAA4F21A6A33D003AD86C /* ChatNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatNotification.swift; sourceTree = "<group>"; };
 		814BAA5121A6AAB4003AD86C /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		814BAA6321A6AD4B003AD86C /* ChatLayoutConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLayoutConfiguration.swift; sourceTree = "<group>"; };
@@ -130,6 +135,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2623334F21A6F8D40009FD0A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2623335021A6F9230009FD0A /* TextMessageCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		267A837F211DDBD20073EAFC = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +177,6 @@
 				267A8392211DDBD20073EAFC /* Assets.xcassets */,
 				267A8394211DDBD20073EAFC /* LaunchScreen.storyboard */,
 				267A8397211DDBD20073EAFC /* Info.plist */,
-				814BAA4A21A6A1F8003AD86C /* bridage.h */,
 			);
 			path = "chat-ios";
 			sourceTree = "<group>";
@@ -211,10 +223,12 @@
 		814BAA2421A6A0ED003AD86C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2623334F21A6F8D40009FD0A /* Cell */,
 				814BAA3421A6A13E003AD86C /* ChatInputView.swift */,
 				814BAA2521A6A13E003AD86C /* ChatInputView.xib */,
 				814BAA3521A6A13E003AD86C /* ExpandableTextView.swift */,
 				814BAA3621A6A13E003AD86C /* ReusableXibView.swift */,
+				2623335221A6FBE00009FD0A /* BaseChatViewControllerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +249,7 @@
 				814BAA7021A6B120003AD86C /* ChatViewController.swift */,
 				814BAA7E21A6BDF2003AD86C /* ChatViewController+Setting.swift */,
 				814BAA8021A6C041003AD86C /* ChatViewController+Presenters.swift */,
+				2623335421A6FF230009FD0A /* ChatViewController+Scrolling.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -479,11 +494,14 @@
 			files = (
 				814BAA4021A6A13E003AD86C /* ChatInputView.swift in Sources */,
 				814BAA4221A6A13E003AD86C /* ReusableXibView.swift in Sources */,
+				2623335121A6F9230009FD0A /* TextMessageCell.swift in Sources */,
 				814BAA5021A6A33D003AD86C /* ChatNotification.swift in Sources */,
+				2623335521A6FF230009FD0A /* ChatViewController+Scrolling.swift in Sources */,
 				814BAA2221A6910F003AD86C /* LoginViewController.swift in Sources */,
 				267A838E211DDBD20073EAFC /* ViewController.swift in Sources */,
 				814BAA5221A6AAB4003AD86C /* Helper.swift in Sources */,
 				814BAA4121A6A13E003AD86C /* ExpandableTextView.swift in Sources */,
+				2623335321A6FBE00009FD0A /* BaseChatViewControllerView.swift in Sources */,
 				814BAA8121A6C041003AD86C /* ChatViewController+Presenters.swift in Sources */,
 				814BAA6B21A6AD4B003AD86C /* SerialTaskQueue.swift in Sources */,
 				814BAA6A21A6AD4B003AD86C /* ChatLayoutConfiguration.swift in Sources */,
@@ -667,11 +685,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KY748RT68A;
 				INFOPLIST_FILE = "chat-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.im.chat.chat-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ios/ios_demo/chat/chat-ios/chat-ios/bridage.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -685,11 +703,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KY748RT68A;
 				INFOPLIST_FILE = "chat-ios/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.im.chat.chat-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/ios/ios_demo/chat/chat-ios/chat-ios/bridage.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
