@@ -9,9 +9,6 @@
 import UIKit
 import RealmSwift
 
-
-
-
 class Dog: Object {
   @objc dynamic var name = ""
   @objc dynamic var age = 0
@@ -21,10 +18,10 @@ class Person: Object {
   @objc dynamic var picture: Data? = nil // optionals supported
   let dogs = List<Dog>()
 }
+
 // 您只能在对象被创建的线程中使用该对象 （这句话太重要了）
 
 class RealmDemoController: UIViewController {
-  
   
   init() {
     super.init(nibName: "RealmDemoController", bundle: Bundle.main)
@@ -73,10 +70,7 @@ class RealmDemoController: UIViewController {
       }
       print(theDog?.age ?? 0)
     }
-    
-    
   }
-  
   
 }
 
