@@ -55,7 +55,6 @@
         <!--Navigation Controller-->
         <scene sceneID="VSf-OL-r9Q">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lfa-w6-Hbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="chatListNav" automaticallyAdjustsScrollViewInsets="NO" id="4sh-XY-rpe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q6Z-fi-xlW">
@@ -67,6 +66,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="w3J-P9-ZLQ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfa-w6-Hbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-580" y="2"/>
         </scene>
@@ -78,7 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-c7-hs7">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Input Your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-c7-hs7">
                                 <rect key="frame" x="87.5" y="50" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="FmO-8k-926"/>
@@ -89,7 +89,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8B-Xw-y9g">
-                                <rect key="frame" x="152.5" y="120" width="70" height="40"/>
+                                <rect key="frame" x="152.5" y="180" width="70" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.57605499999999998" blue="0.66546499999999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="DxB-UA-rom"/>
@@ -99,19 +99,32 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Input Your Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ihR-sP-4mk">
+                                <rect key="frame" x="87.5" y="110" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="WBn-fl-tkJ"/>
+                                    <constraint firstAttribute="width" constant="200" id="e2K-Vr-4kq"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ihR-sP-4mk" firstAttribute="centerX" secondItem="Bga-xB-pqE" secondAttribute="centerX" id="HQh-Bu-BRU"/>
                             <constraint firstItem="SWx-c7-hs7" firstAttribute="top" secondItem="Ntz-7e-Xms" secondAttribute="top" constant="30" id="Jgt-XY-mEm"/>
                             <constraint firstItem="SWx-c7-hs7" firstAttribute="centerX" secondItem="Bga-xB-pqE" secondAttribute="centerX" id="RXs-Gp-xJY"/>
-                            <constraint firstItem="h8B-Xw-y9g" firstAttribute="top" secondItem="SWx-c7-hs7" secondAttribute="bottom" constant="20" id="TwB-fw-FUd"/>
+                            <constraint firstItem="h8B-Xw-y9g" firstAttribute="top" secondItem="ihR-sP-4mk" secondAttribute="bottom" constant="20" id="ehh-rB-Hhx"/>
                             <constraint firstItem="h8B-Xw-y9g" firstAttribute="centerX" secondItem="Bga-xB-pqE" secondAttribute="centerX" id="fAS-fY-mIO"/>
+                            <constraint firstItem="ihR-sP-4mk" firstAttribute="top" secondItem="SWx-c7-hs7" secondAttribute="bottom" constant="10" id="tmQ-3n-sEp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ntz-7e-Xms"/>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="SWx-c7-hs7" id="BYj-db-1vd"/>
                         <outlet property="loginButton" destination="h8B-Xw-y9g" id="KrC-YJ-P6m"/>
-                        <outlet property="userNameField" destination="SWx-c7-hs7" id="Tir-jg-yyC"/>
+                        <outlet property="passwordField" destination="ihR-sP-4mk" id="dSC-u6-iJg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9V-Cn-xhM" userLabel="First Responder" sceneMemberID="firstResponder"/>
