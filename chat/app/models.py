@@ -8,14 +8,10 @@ from flask import current_app
 
 
 class User(UserMixin,db.Model):
+
     __tablename__ = 'users'
 
     confirmed = db.Column(db.Boolean, default=False)
-
-    def generate_confirmation_token(self, expiration=3600):
-        s = Serializer(current_app.config['SECRET_KEY'], expiration)
-        return s.dumps({'confirm': self.id})
-
     id = db.Column(db.Integer,primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
@@ -31,6 +27,20 @@ class User(UserMixin,db.Model):
 
     def verify_password(self,password):
         return check_password_hash(self.password_hash,password)
+
+    def generate_auth_token(self, expiration=3600):
+        s = Serializer(current_app.config['SECRET_KEY'], expiration)
+        return s.dumps({'id': self.id})
+
+    @staticmethod
+    def verify_auth_token(token):
+        s = Serializer(current_app.config['SECRET_KEY'])
+        try:
+            data = s.loads(token)
+        except:
+            return None
+        return User.query.get(data['id'])
+
 
 
 @login_manager.user_loader
